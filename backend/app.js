@@ -9,7 +9,7 @@ const programRoutes = require("./routes/programRoutes");
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: "https://cema-assignment-frontend.onrender.com" 
 }));
 
 // Middleware
