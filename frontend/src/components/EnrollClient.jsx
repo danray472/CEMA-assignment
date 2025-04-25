@@ -21,7 +21,7 @@ function EnrollClient() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:5000/api/clients/enroll/${selectedClient}`, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/clients/enroll/${selectedClient}`, {
         programIds: selectedPrograms
       });
       setMessage("Client enrolled successfully!");

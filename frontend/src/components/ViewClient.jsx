@@ -6,11 +6,12 @@ function ViewClient() {
   const [client, setClient] = useState(null);
   const [error, setError] = useState("");
 
+
   const handleSearch = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.get(`http://localhost:5000/api/clients/search/${nationalId}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/clients/search/${nationalId}`);
       setClient(res.data);
     } catch (err) {
       setClient(null);

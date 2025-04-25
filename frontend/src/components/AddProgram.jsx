@@ -9,14 +9,14 @@ function AddProgram() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/programs', { name, description });
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/programs`, { name, description });
       setMessage('Program created successfully!');
       setName('');
       setDescription('');
     } catch (err) {
       setMessage('Error: ' + err.response?.data?.error || err.message);
     }
-  };
+  }
 
   return (
     <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-md mt-8">
