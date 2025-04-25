@@ -10,10 +10,15 @@ function EnrollClient() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const clientsRes = await axios.get("http://localhost:5000/api/clients");
-      const programsRes = await axios.get("http://localhost:5000/api/programs");
-      setClients(clientsRes.data);
-      setPrograms(programsRes.data);
+      try {
+        const clientsRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/clients`);
+        const programsRes = await axios.get(`${import.meta.env.VITE_API_URL}/api/programs`);
+        setClients(clientsRes.data);
+        setPrograms(programsRes.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        
+      }
     };
     fetchData();
   }, []);
