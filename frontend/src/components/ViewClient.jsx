@@ -6,7 +6,6 @@ function ViewClient() {
   const [client, setClient] = useState(null);
   const [error, setError] = useState("");
 
-
   const handleSearch = async (e) => {
     e.preventDefault();
     setError("");
@@ -23,7 +22,7 @@ function ViewClient() {
     <div className="max-w-xl mx-auto p-4 bg-white shadow-md rounded-md mt-10">
       <h2 className="text-xl font-semibold mb-4">Search Client by National ID</h2>
 
-      <form onSubmit={handleSearch} className="flex gap-2 mb-4">
+      <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-2 mb-4">
         <input
           type="text"
           placeholder="Enter National ID"
@@ -34,7 +33,7 @@ function ViewClient() {
         />
         <button
           type="submit"
-          className="bg-purple-600 text-white p-2 rounded hover:bg-purple-700"
+          className="bg-purple-600 text-white p-2 rounded hover:bg-purple-700 w-full md:w-auto"
         >
           Search
         </button>
